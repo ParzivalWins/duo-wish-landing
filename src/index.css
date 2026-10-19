@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* -----------------------------------------------------------------------------
+ * Duo Wish — Brand Tokens (Tailwind v4 @theme directive)
+ *
+ * Source of truth:
+ *   Wish Design System (BUI-2202 Linear Spec & DuoWish WishModel.swift)
+ *   Obsidian canvas, slate cards, indigo accent, wish-pink social moment,
+ *   and Giftful emerald claim accent.
+ * --------------------------------------------------------------------------- */
+
+@theme {
+  /* --- Colors: Wish Design System ----------------------------------------- */
+  --color-obsidian: #0B0F19;             /* canvas — deepest background */
+  --color-slate: #151C2C;                /* card base, utility rail */
+  --color-slate-raised: #1B2336;         /* elevated scrapbook quadrant cards */
+  --color-slate-deep: #080B12;           /* deepest hero gradient terminus */
+
+  --color-indigo: #6366F1;               /* selection accent, book-fold spine */
+  --color-indigo-soft: rgba(99, 102, 241, 0.14);
+  --color-indigo-glow: rgba(99, 102, 241, 0.40);
+
+  --color-wish-pink: #EC4899;            /* social sharing highlight moment */
+  --color-wish-pink-soft: rgba(236, 72, 153, 0.14);
+  --color-wish-pink-glow: rgba(236, 72, 153, 0.40);
+
+  --color-giftful-emerald: #00C875;      /* Giftful platform & + Claim CTA */
+  --color-giftful-emerald-soft: rgba(0, 200, 117, 0.14);
+  --color-giftful-pill: #0A4834;         /* dark emerald retailer badge */
+
+  --color-studio-card: #F2F1EE;          /* light studio product photograph backdrop */
+
+  --color-text-primary: #FFFFFF;         /* headlines, titles */
+  --color-text-secondary: rgba(255, 255, 255, 0.68); /* subtitles, body copy */
+  --color-text-muted: rgba(255, 255, 255, 0.42);     /* captions, metadata */
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* --- Typography -------------------------------------------------------- */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+
+  /* --- Radii ------------------------------------------------------------- */
+  --radius-card: 1rem;              /* 16pt — matches iOS WLRadius.hero */
+  --radius-tile: 0.75rem;           /* 12pt — matches iOS WLRadius.card */
+  --radius-button: 9999px;          /* capsule for primary CTAs */
+  --radius-chip: 9999px;            /* pill chips */
+
+  /* --- Shadows ----------------------------------------------------------- */
+  --shadow-indigo-glow: 0 0 25px -5px rgba(99, 102, 241, 0.45);
+  --shadow-pink-glow: 0 0 25px -5px rgba(236, 72, 153, 0.45);
+  --shadow-emerald-glow: 0 0 25px -5px rgba(0, 200, 117, 0.45);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7),
+                 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-cta: 0 10px 35px -8px rgba(236, 72, 153, 0.55);
+}
+
+/* -----------------------------------------------------------------------------
+ * Base layer
+ * --------------------------------------------------------------------------- */
+html,
+body {
+  background-color: var(--color-obsidian);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 5px;
+  border: 2px solid var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-raised);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-wish-pink-soft);
+  color: var(--color-text-primary);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-wish-pink);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
